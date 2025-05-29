@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Shetseita Runner</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #1b1b2f;
+      color: white;
+      font-family: 'Verdana';
+      text-align: center;
+    }
+    #menu, #game, #final-book {
+      display: none;
+    }
+    .btn {
+      padding: 15px 30px;
+      font-size: 18px;
+      margin-top: 20px;
+      background-color: #4b6584;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+    }
+    .book-images {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .book-images img {
+      max-width: 200px;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body onload="showMenu()">
+  <div id="menu">
+    <h1>📖 Shetseita Runner</h1>
+    <button class="btn" onclick="startGame()">Iniciar juego</button>
+    <audio id="menuMusic" loop autoplay>
+      <source src="assets/audio/menu.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div id="game">
+    <h2>Recolecta todos los libros 📚</h2>
+    <canvas id="gameCanvas" width="800" height="400" style="background-color:#2f3640;"></canvas>
+    <audio id="mapMusic" loop>
+      <source src="assets/audio/harrysong.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div id="final-book">
+    <h2>✨ Siempre estaré aquí...</h2>
+    <p>...intentando darte un poquito de felicidad en esos días tristes 💖</p>
+    <div class="book-images">
+      <img src="assets/img/1.jpg">
+      <img src="assets/img/2.jpg">
+      <img src="assets/img/3.jpg">
+      <img src="assets/img/4.jpg">
+    </div>
+  </div>
+
+  <script>
+    function showMenu() {
+      document.getElementById("menu").style.display = "block";
+    }
+
+    function startGame() {
+      document.getElementById("menu").style.display = "none";
+      document.getElementById("game").style.display = "block";
+      document.getElementById("menuMusic").pause();
+      document.getElementById("mapMusic").play();
+
+      setTimeout(() => {
+        document.getElementById("game").style.display = "none";
+        document.getElementById("final-book").style.display = "block";
+        document.getElementById("mapMusic").pause();
+      }, 4 * 60 * 1000); // 4 minutos
+    }
+  </script>
+</body>
+</html>
