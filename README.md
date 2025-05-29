@@ -1,0 +1,2 @@
+# shetseita
+JUEGO PARA SHETSEA
